@@ -1,0 +1,19 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+// Inicia la sesi¨®n solo si no est¨¢ ya activa
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Verifica si la clave "peds" existe en $_SESSION
+$pedsPed = isset($_SESSION["peds"]) ? $_SESSION["peds"] : null;
+
+// Si $pedsPed es null, redirige al usuario
+if ($pedsPed == null) {
+    // Redirige al usuario
+    header('Location: index.php');
+    exit(); // Aseg¨²rate de que el script se detenga despu¨¦s de la redirecci¨®n
+}
+?>
